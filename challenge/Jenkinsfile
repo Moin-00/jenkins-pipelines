@@ -1,0 +1,17 @@
+pipeline{
+    agent any
+    parameters{
+        string(defaultValue:'new-feature',description:'Deployment name',name:'deploymentName')
+        choice(choices:["EU-WEST-2A","EU-WEST-2B","EU-WEST-2C","EU-TEST"],description:"Deployement Region",name:"deploymentEnv")
+        booleanParam(defaultValue:false,description:'Confirm Deployment',name:'confirmDeployement')
+    }
+    stages{
+        stage("Deploy build"){
+            steps{
+                echo "Type of deployement ${params.deploymentName}"
+                echo "Deployment Region ${params.deploymentEnv}"
+                echo "Deployment Confiramtion ${params.confirmDeployement}"
+            }
+        }
+    }
+}
