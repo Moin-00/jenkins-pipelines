@@ -1,0 +1,11 @@
+pipeline {
+    agent any
+    stages {
+        stage('Example') {
+            steps {
+                echo "Running build: ${env.BUILD_ID} on ${env.JENKINS_URL}"
+                echo "With Build Number : ${env.BUILD_Number}"
+            }
+        }
+    }
+}
